@@ -33,5 +33,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/DAP # <-- Replace with your exact project folder name inside /dist
+          folder: dist/DAP/browser # <-- Replace with your exact project folder name inside /dist
           branch: gh-pages
