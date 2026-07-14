@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
-# Grant permissions required for GitHub Pages deployment
 permissions:
   contents: write
 
@@ -27,11 +27,10 @@ jobs:
         run: npm ci
 
       - name: Build Production Application
-        run: npm run build -- --configuration=production
+        run: npm run build -- --configuration=production --base-href "/AngularDP1/"
 
-      # Deploys the built files automatically to a isolated 'gh-pages' branch
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/DAP/browser # <-- Replace with your exact project folder name inside /dist
+          folder: dist/DAP/browser
           branch: gh-pages
